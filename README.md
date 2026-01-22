@@ -18,6 +18,5 @@ This package is based on the actively maintained fork at https://github.com/dlun
 
 ## Upstream
 
-- Original project: https://github.com/medusalix/xone (maintenance mode)
+- Original project: https://github.com/medusalix/xone (appears to not be in active development)
 - Active fork (packaged here): https://github.com/dlundqvist/xone
-- Original author: Severin von Wnuck-Lipinski <severinvonw@outlook.de>

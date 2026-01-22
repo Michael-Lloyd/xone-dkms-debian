@@ -18,6 +18,8 @@ override_dh_auto_install:
 	cp -r driver debian/xone-dkms/usr/src/xone-$(VERSION)/
 	cp -r transport debian/xone-dkms/usr/src/xone-$(VERSION)/
 	cp Kbuild debian/xone-dkms/usr/src/xone-$(VERSION)/
+	find debian/xone-dkms/usr/src/xone-$(VERSION) -type f -name '*.c' \
+		-exec sed -i 's/#VERSION#/$(VERSION)/g' {} +
 	sed 's/#VERSION#/$(VERSION)/g' dkms.conf \
 		> debian/xone-dkms/usr/src/xone-$(VERSION)/dkms.conf
 	install -d debian/xone-dkms/usr/lib/modprobe.d
