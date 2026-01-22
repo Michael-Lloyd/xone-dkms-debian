@@ -1,0 +1,48 @@
+#!/bin/bash
+set -e
+
+UPSTREAM_VERSION="0.5.2"
+UPSTREAM_REPO="https://github.com/dlundqvist/xone.git"
+UPSTREAM_TAG="v${UPSTREAM_VERSION}"
+PACKAGE_NAME="xone-dkms"
+BUILD_DIR="../xone-${UPSTREAM_VERSION}"
+
+echo "Building ${PACKAGE_NAME} package..."
+echo "Upstream version: ${UPSTREAM_VERSION}"
+
+# Download orig.tar.gz if not present
+if [ ! -f "../${PACKAGE_NAME}_${UPSTREAM_VERSION}.orig.tar.gz" ]; then
+    echo "Downloading upstream source tarball..."
+    wget -O "../${PACKAGE_NAME}_${UPSTREAM_VERSION}.orig.tar.gz" \
+        "https://github.com/dlundqvist/xone/archive/refs/tags/${UPSTREAM_TAG}.tar.gz"
+fi
+
+# Extract source if not present
+if [ ! -d "${BUILD_DIR}" ]; then
+    echo "Extracting upstream source..."
+    tar -xzf "../${PACKAGE_NAME}_${UPSTREAM_VERSION}.orig.tar.gz" -C ..
+fi
+
+# Copy debian packaging files
+echo "Copying debian/ directory..."
+rm -rf "${BUILD_DIR}/debian"
+cp -r debian "${BUILD_DIR}/"
+
+# Build package
+cd "${BUILD_DIR}"
+echo "Cleaning previous build..."
+debian/rules clean
+
+echo "Building package..."
+dpkg-buildpackage -us -uc -sa
+
+# Sign the package
+cd ..
+echo ""
+echo "Signing package..."
+debsign ${PACKAGE_NAME}_${UPSTREAM_VERSION}-1_*.changes
+
+cd ..
+echo ""
+echo "Build complete! Packages are in: $(pwd)"
+ls -lh ${PACKAGE_NAME}_*.deb ${PACKAGE_NAME}_*.dsc ${PACKAGE_NAME}_*.changes 2>/dev/null || true

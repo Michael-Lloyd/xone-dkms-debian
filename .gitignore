@@ -1,0 +1,34 @@
+# Generated maintainer scripts (built from .in templates)
+debian/xone-dkms.preinst
+debian/xone-dkms.postinst
+debian/xone-dkms.prerm
+debian/xone-dkms.postrm
+
+# Debhelper generated files
+debian/debhelper-build-stamp
+debian/files
+debian/.debhelper/
+debian/xone-dkms/
+debian/*.debhelper
+debian/*.debhelper.log
+debian/*.substvars
+
+# Build artifacts and package files
+*.deb
+*.dsc
+*.changes
+*.buildinfo
+*.tar.gz
+*.tar.xz
+*.upload
+
+# Temporary build directories
+debian/tmp/
+
+# Editor and system files
+*~
+*.swp
+*.swo
+.*.sw?
+*#
+.#*

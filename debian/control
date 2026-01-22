@@ -1,0 +1,26 @@
+Source: xone-dkms
+Section: kernel
+Priority: optional
+Maintainer: Michael Lloyd <michael@micl.dev>
+Build-Depends: debhelper-compat (= 13), dh-dkms
+Standards-Version: 4.7.3
+Homepage: https://github.com/dlundqvist/xone
+Vcs-Browser: https://github.com/Michael-Lloyd/xone-dkms-debian
+Vcs-Git: https://github.com/Michael-Lloyd/xone-dkms-debian.git
+Rules-Requires-Root: no
+
+Package: xone-dkms
+Architecture: all
+Depends: ${misc:Depends}, dkms (>= 2.1.0.0)
+Suggests: xserver-xorg-input-joystick
+Provides: xone-modules
+Description: Linux kernel driver for Xbox One and Xbox Series X|S accessories
+ This driver supports Xbox One and Xbox Series X|S accessories including
+ wired controllers, the Xbox Wireless Adapter, and various third-party
+ controllers. It serves as a modern replacement for xpad and implements
+ Microsoft's Game Input Protocol (GIP).
+ .
+ Features include force feedback, rumble, battery status reporting, LED
+ control, and audio support.
+ .
+ This package uses DKMS to automatically build the xone kernel modules.

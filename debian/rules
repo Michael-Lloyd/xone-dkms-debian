@@ -1,0 +1,35 @@
+#!/usr/bin/make -f
+
+VERSION := $(shell dpkg-parsechangelog -S version | cut -d- -f1)
+
+%:
+	dh $@ --with dkms
+
+override_dh_auto_configure:
+
+override_dh_auto_build:
+
+override_dh_auto_test:
+
+override_dh_auto_install:
+	install -d debian/xone-dkms/usr/src/xone-$(VERSION)
+	cp -r auth debian/xone-dkms/usr/src/xone-$(VERSION)/
+	cp -r bus debian/xone-dkms/usr/src/xone-$(VERSION)/
+	cp -r driver debian/xone-dkms/usr/src/xone-$(VERSION)/
+	cp -r transport debian/xone-dkms/usr/src/xone-$(VERSION)/
+	cp Kbuild debian/xone-dkms/usr/src/xone-$(VERSION)/
+	sed 's/#VERSION#/$(VERSION)/g' dkms.conf \
+		> debian/xone-dkms/usr/src/xone-$(VERSION)/dkms.conf
+	install -d debian/xone-dkms/usr/lib/modprobe.d
+	install -m 644 install/modprobe.conf \
+		debian/xone-dkms/usr/lib/modprobe.d/xone-blacklist.conf
+
+override_dh_installdeb:
+	sed 's/@VERSION@/$(VERSION)/g' debian/xone-dkms.preinst.in > debian/xone-dkms.preinst
+	sed 's/@VERSION@/$(VERSION)/g' debian/xone-dkms.postinst.in > debian/xone-dkms.postinst
+	sed 's/@VERSION@/$(VERSION)/g' debian/xone-dkms.prerm.in > debian/xone-dkms.prerm
+	sed 's/@VERSION@/$(VERSION)/g' debian/xone-dkms.postrm.in > debian/xone-dkms.postrm
+	dh_installdeb
+
+override_dh_auto_clean:
+	rm -f debian/xone-dkms.preinst debian/xone-dkms.postinst debian/xone-dkms.prerm debian/xone-dkms.postrm
