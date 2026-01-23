@@ -1,5 +1,5 @@
-xone-dkms (0.5.2-1) UNRELEASED; urgency=medium
+xone-dkms (0.5.2-1) unstable; urgency=medium
 
-  * Initial release. (Closes: #????????)
+  * Initial release. (Closes: #1126169)
 
- -- Michael Lloyd <michael@micl.dev>  Wed, 22 Jan 2026 09:30:00 +1100
+ -- Michael Lloyd <michael@micl.dev>  Fri, 23 Jan 2026 10:49:20 +1100

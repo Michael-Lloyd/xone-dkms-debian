@@ -7,7 +7,6 @@ Standards-Version: 4.7.3
 Homepage: https://github.com/dlundqvist/xone
 Vcs-Browser: https://github.com/Michael-Lloyd/xone-dkms-debian
 Vcs-Git: https://github.com/Michael-Lloyd/xone-dkms-debian.git
-Rules-Requires-Root: no
 
 Package: xone-dkms
 Architecture: all

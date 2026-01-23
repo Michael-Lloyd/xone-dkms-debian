@@ -1,4 +1,5 @@
 version=4
+# Upstream does not provide GPG signatures for releases
 opts="filenamemangle=s%(?:.*?)?v?(\d[\d.]*)\.tar\.gz%xone-$1.tar.gz%" \
   https://github.com/dlundqvist/xone/tags \
   (?:.*?/)?v?(\d[\d.]*)\.tar\.gz debian
