@@ -10,7 +10,7 @@ Vcs-Git: https://github.com/Michael-Lloyd/xone-dkms-debian.git
 
 Package: xone-dkms
 Architecture: all
-Depends: ${misc:Depends}, dkms (>= 2.1.0.0)
+Depends: ${misc:Depends}, dkms (>= 2.1.0.0), linux-headers-generic
 Suggests: xserver-xorg-input-joystick
 Provides: xone-modules
 Description: Linux kernel driver for Xbox One and Xbox Series X|S accessories

@@ -1,3 +1,11 @@
+xone-dkms (0.5.2-2) unstable; urgency=medium
+
+  * Add README.Debian to provide Debian-specific information.
+  * Install Makefile to ensure build reliability.
+  * Add linux-headers-generic to Depends.
+
+ -- Michael Lloyd <michael@micl.dev>  Tue, 27 Jan 2026 10:11:46 +1100
+
 xone-dkms (0.5.2-1) unstable; urgency=medium
 
   * Initial release. (Closes: #1126169)
