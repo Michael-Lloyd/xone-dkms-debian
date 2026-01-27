@@ -5,8 +5,8 @@ Maintainer: Michael Lloyd <michael@micl.dev>
 Build-Depends: debhelper-compat (= 13), dh-dkms
 Standards-Version: 4.7.3
 Homepage: https://github.com/dlundqvist/xone
-Vcs-Browser: https://github.com/Michael-Lloyd/xone-dkms-debian
-Vcs-Git: https://github.com/Michael-Lloyd/xone-dkms-debian.git
+Vcs-Browser: https://salsa.debian.org/micl/xone-dkms
+Vcs-Git: https://salsa.debian.org/micl/xone-dkms.git
 
 Package: xone-dkms
 Architecture: all
