@@ -1,5 +1,6 @@
 xone-dkms (0.5.2-2) unstable; urgency=medium
 
+  * Add autopkgtests to verify dkms module functionality.
   * Add README.Debian to provide Debian-specific information.
   * Install Makefile to ensure build reliability.
   * Add linux-headers-generic to Depends.
