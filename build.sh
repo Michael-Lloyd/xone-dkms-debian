@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-UPSTREAM_VERSION="0.5.2"
+UPSTREAM_VERSION="0.5.4"
 UPSTREAM_REPO="https://github.com/dlundqvist/xone.git"
 UPSTREAM_TAG="v${UPSTREAM_VERSION}"
 PACKAGE_NAME="xone-dkms"
